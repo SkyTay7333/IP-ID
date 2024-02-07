@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
+.headertxt {
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.maintxt {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.gradient-nw {
+    background: linear-gradient(90deg, #ff50f3, #6a00ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.gradient-st {
+    background: linear-gradient(90deg, #00b7ff, #764efc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+}

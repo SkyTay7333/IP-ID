@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/app.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="icon" href="../resources/icon/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../resources/icon/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="../resources/icon/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../resources/icon/favicon-16x16.ico">
+
+  <!-- For Android devices -->
+  <link rel="icon" type="image/png" sizes="192x192" href="../resources/icon/android-chrome-192x192.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="../resources/icon/android-chrome-512x512.ico">
+
+  <!-- For Apple devices -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../resources/icon/apple-touch-icon.ico">
+  <title>Nimbus Wealth</title>
+
+</head>
+<body id="body" class="fixed bg-white dark:bg-black overflow-hidden overflow-x-hidden ml-2">
+
+  <header id="mainHeader" class="flex relative items-center justify-center bg-white dark:bg-black text-black dark:text-white w-screen h-screen z-50 mb-10">
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-semibold" data-aos="fade-out" data-aos-duration="1000"
+    data-aos-easing="linear">Nimbus Wealth</h1>
+    <button class="animate-bounce absolute bottom-8 ">
+      <svg id="downButton" class="w-6 h-6 text-black dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor" onclick="scrollToMainSection()" data-aos="fade-down">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+  </header>
+  
+ <div id="fixed-container" class="">
+  <nav id="nav" class="maintxt top-0 w-full z-50 bg-white dark:bg-black" data-aos="fade-up" data-aos-duration="1000">
+    <div class="hidden md:flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="#" class="flex items-center space-x- rtl:space-x-reverse cursor-pointer">
+        <img src="../resources/navbar/Sky Studios.png" class="h-8 ml-3 mr-4" alt="Sky Studios Logo" />
+        <span class="self-center text-3xl font-semibold text-black whitespace-nowrap dark:text-white">Sky Studios</span>
+      </a>
+
+      <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+        <ul class="flex flex-col relative items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md">
+          <li>
+            <a href="home.html" class="block py-2 px-3 bg-blue-700 rounded md:bg-transparent md:text-blue-500 md:p-0 md:dark:text-blue-700 md:dark:bg-transparent" aria-current="page">Home</a>
+          </li>
+          <li>
+            <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="flex items-center justify-between w-full py-2 px-3 md:text-black rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent md:hover:cursor-pointer" type="button">Features <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+              </svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdownHover" class="block z-10 hidden bg-transparent divide-y divide-gray rounded-lg shadow md:w-44 md:dark:bg-gray">
+              <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                <li>
+                  <a href="planning.html" class="block px-4 py-2 bg-black border-4 border-white md:text-black md:dark:border-black rounded-xl md:dark:bg-white md:hover:bg-blue-700 md:dark:hover:bg-blue-500 md:hover:scale-105">
+                    <span class="text-white md:dark:text-black">Planning</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="fip.html" class="block px-4 py-2 bg-black border-4 border-white md:text-black md:dark:border-black rounded-xl md:dark:bg-white md:hover:bg-blue-700 md:dark:hover:bg-blue-500 md:hover:scale-105">
+                    <span class="text-white md:dark:text-black">FIP</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            
+            
+
+          </li>
+          <li>
+            <a href="about.html" class="block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500  md:dark:hover:bg-transparent ">About</a>
+          </li>
+          <li>
+            <a href="contact.html" class="block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 ">Contact</a>
+          </li>
+          <li>
+            <button id="getStartedBtn" class="inline-flex justify-between items-center h-7 px-3 text-white bg-blue-700 rounded-full md:text-white md:dark:text-white dark:bg-blue-600 md:hover:bg-purple-700 hover:scale-105  transition-all duration-300 ease-in-out">Get Started</button>
+            <button id="profile-icon-container"
+              class="hidden relative justify-between items-center text-4xl right-2 text-black dark:text-white  hover:scale-105  transition-all duration-300 ease-in-out"><i class="fa fa-user-circle" aria-hidden="true"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ 
+  <div id="mobile" class="overflow-x-hidden">
+    <div id="mobile" class="">
+      <div id="mobileNav" class="md:hidden flex absolute top-full flex-wrap items-center justify-between mx-auto p-4 w-full">
+        <a href="#" class="flex items-center cursor-pointer">
+            <!-- Logo -->
+            <img src="../resources/navbar/Sky Studios.png" class="h-6 ml-1 mr-4" alt="Sky Studios Logo" />
+            <span class="self-center text-xl font-semibold text-black whitespace-nowrap dark:text-white">Sky Studios</span>
+        </a>
+    
+        <!-- Mobile menu button with Font Awesome bars icon -->
+        <button id="mobileNavToggle" class="text-2xl text-black dark:text-white">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+    
+        <!-- Mobile Sidebar -->
+        <div id="sidebar" class="hidden absolute top-0 right-0 w-48 h-full transform translate-x-full transition-transform duration-300 ease-in-out shadow-lg rounded-lg z-50">
+          <div class="p-4 h-screen bg-gray-800 overflow-hidden">
+              <ul class="space-y-4">
+                  <li>
+                      <a href="home.html" class="block py-2 px-4 text-white hover:bg-gray-600 rounded-md transition-all duration-300 ease-in-out">Home</a>
+                  </li>
+                  <li>
+                      <a href="planning.html" class="block py-2 px-4 text-white hover:bg-gray-600 rounded-md transition-all duration-300 ease-in-out">Planning</a>
+                  </li>
+                  <li>
+                    <a href="fip.html" class="block py-2 px-4 text-white hover:bg-gray-600 rounded-md transition-all duration-300 ease-in-out">FIP</a>
+                  </li>
+                  <li>
+                      <a href="about.html" class="block py-2 px-4 text-white hover:bg-gray-600 rounded-md transition-all duration-300 ease-in-out">About</a>
+                  </li>
+                  <li>
+                      <a href="contact.html" class="block py-2 px-4 text-white hover:bg-gray-600 rounded-md transition-all duration-300 ease-in-out">Contact</a>
+                  </li>
+                  <li>
+                    <a href="fipBadges.html" class="block py-2 px-4 text-white hover:bg-gray-600 rounded-md transition-all duration-300 ease-in-out">Badges</a>
+                  </li>
+                  <li>
+                      <button id="mobileGetStartedBtn" class="block py-2 px-4 text-white bg-blue-700 rounded-full hover:bg-blue-800 transition-all duration-300 ease-in-out">Get Started</button>
+                  </li>
+
+              </ul>
+          </div>
+        </div>
+      
+      </div>
+  
+    </div>
+
+  <main>
+    <section>
+      <div class="flex flex-wrap items-center mx-auto p-2" >
+        <!-- Photo -->        
+        <div class="w-full flex md:w-1/3 p-4 md:mt-6 md:ml-20 mt-4" data-aos="fade-up-right" data-aos-duration="1000" data-aos-easing="linear">
+          <div class="flex items-center justify-center overflow-hidden rounded-md">
+            <img src="../resources/homepage/NimbusWealthLogo.png" alt="Nimbus Wealth Logo" class="w-full h-auto">
+          </div>
+        </div>
+        
+        <!-- Description -->
+        <div class="w-full md:w-1/2 p-4 md:ml-20 md:mt-10" data-aos="fade-left" data-aos-duration="1000" data-aos-easing="linear">
+          <div class="flex items-center mb-5">
+            <h2 class="headertxt gradient-nw text-4xl font-semibold  mr-2 mt-1">Nimbus Wealth</h2>
+            <p class="text-sm font-bold text-gray-800 dark:text-gray-300 mt-4">by Sky Studios</p>
+          </div>
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-5">
+            Nimbus Wealth is your ultimate financial companion, redefining the way you manage your finances. With an intuitive design, the website seamlessly allows users to effortlessly record their expenses, transforming mundane transactions into a visual journey through insightful graphs. Serving as your virtual tally book, Nimbus Wealth embodies the essence of P-Planning, S-Save, G-Growth.
+          </p>
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-5">
+            Beyond traditional financial tracking, the website introduces an exciting game, enabling users to simulate investments with a fictional currency mirroring real stock market dynamics. Nimbus Wealth isn't just a finance website; it's your virtual ally in financial management, empowering you to plan, save, and grow with confidence.    
+          </p>
+          <button type="button" id="getStartedBtnhomeoverview" class="hidden md:inline-flex justify-between items-center h-7 px-3 text-white bg-blue-700 rounded-full md:text-white md:dark:text-white dark:bg-blue-600 md:hover:bg-purple-700 md:hover:scale-105  transition-all duration-300 ease-in-out">Get Started</button>
+          <button type="button" id="downloadAPP" class="md:hidden inline-flex justify-between items-center h-7 px-3 text-white bg-blue-700 rounded-full md:text-white md:dark:text-white dark:bg-blue-600 md:hover:bg-purple-700 md:hover:scale-105  transition-all duration-300 ease-in-out">Get Started</button>
+
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="w-full p-4 mt-10">
+        <div class="flex flex-wrap justify-between">
+          <!-- Card 1 -->
+          <div class="relative w-full md:w-2/5 p-4 mb-4 md:ml-20 md:hover:scale-105 transition-all duration-500 ease-in-out box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);"  data-aos="fade-right" data-aos-duration="1000" data-aos-easing="linear">
+            <div class="rounded-xl overflow-hidden shadow-md relative">
+              <img src="../resources/homepage/FIP.jpeg" alt="Card 1 Image" class="w-full object-cover rounded-t-lg">
+              <div class="absolute top-0 left-0 p-8">
+                <h3 class="text-2xl font-semibold text-white">Financial Investments</h3>
+                <h3 class="text-2xl font-semibold text-white mb-4">Practice (FIP)</h3>
+                <p class="text-gray-200 w-40 md:w-3/6 mb-2"> Learn trading risk-free with simulated currency and real market data.</p>
+                <a href="fip.html" class="text-sm text-blue-500"> Learn more</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="relative w-full md:w-2/5 p-4 md:mr-20 md:hover:scale-105 transition-all duration-500 ease-in-out box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);" data-aos="fade-left" data-aos-duration="1000" data-aos-easing="linear">
+            <div class="rounded-xl overflow-hidden shadow-md relative">
+              <img src="../resources/homepage/Planning.jpeg" alt="Card 2 Image" class="w-full object-cover rounded-t-lg">
+              <div class="absolute top-0 left-0 p-8">
+                <h3 class="text-2xl font-semibold text-white mb-4">Planning</h3>
+                <p class="text-gray-300 w-40 md:w-3/6 mb-2"> Simplifying budgeting, helping you track daily expenses like a virtual tally book for effective financial management.</p>
+                <a href="planning.html" class="text-sm text-blue-500"> Learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="flex flex-wrap items-center mx-auto p-2 pt-16">
+        <!-- About Us Description -->
+        <div class="w-full md:w-1/2 p-4 md:ml-20 md:mt-10" data-aos="fade-up-right" data-aos-duration="1000"  data-aos-easing="linear" >
+          <h2 class="text-4xl font-semibold text-gray-900 dark:text-white mb-4">Who are we</h2>
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-5">
+            Welcome to Sky Studios, where three enthusiastic students come together to explore the realms of 3D modeling, programming, and design. As a team, we're passionate about harnessing our learning to create innovative solutions and visually stunning works. From intricate 3D projects to sleek website designs, we blend our academic knowledge with a creative flair. Though we're still on our educational journey, we are committed to delivering quality and originality in every project. Whether it's crafting detailed models, coding robust applications, or designing eye-catching visuals, we're eager to take on challenges and turn ideas into realities.
+          </p>
+        </div>
+
+        <!-- Photo -->
+        <div class="w-full flex md:w-1/3 p-4 md:mt-6 md:ml-20 mt-4" data-aos="fade-left" data-aos-duration="1000"  data-aos-easing="linear">
+          <div class="flex items-center justify-center overflow-hidden rounded-md">
+            <img src="../resources/about/discussing.png" alt="About Us Pic" class="w-full h-auto">
+          </div>
+        </div>
+
+        
+      </div>
+    </section>
+
+  </main>    
+
+  <footer class="text-center p-4 md:mt-20 text-xs">
+    <p class="text-gray-800 hidden md:block dark:text-gray-200">
+      Copyright &copy; 2024 Sky Studios. All rights reserved.
+      
+      <a href="planning.html" class="text-gray-800 dark:text-gray-200 ml-20 mr-3">Planning</a>
+      |
+      <a href="FIP.html" class="text-gray-800 dark:text-gray-200 ml-3 mr-3">FIP</a>
+      |
+      <a href="about.html" class="text-gray-800 dark:text-gray-200 ml-3 mr-3">About Us</a>
+      |
+      <a href="contact.html" class="text-gray-800 dark:text-gray-200 ml-3 mr-3">Contact Us</a>
+      |
+      <a href="#" class="text-gray-800 dark:text-gray-200 ml-3" target="_blank">Sky Studios</a>
+    </p>
+
+    <div class="flex flex-col items-center md:hidden">
+      <p class="text-gray-800 dark:text-gray-200 mt-2 mb-4">
+        Copyright &copy; 2024 Sky Studios. All rights reserved.
+      </p>
+    
+      <p class="text-gray-800 dark:text-gray-200">
+        <a href="planning.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">Planning</a> |
+        <a href="FIP.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">FIP</a> |
+        <a href="about.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">About Us</a> |
+        <a href="contact.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">Contact Us</a> |
+        <a href="#" class="text-gray-800 dark:text-gray-200 ml-2" target="_blank">Sky Studios</a>
+      </p>
+    </div>
+  </footer>
+ </div>
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+
+  <script>
+    window.onload = function() {
+      window.scrollTo(0, 0);
+    };
+  
+    function scrollToMainSection() {
+      const mainHeader = document.getElementById('mainHeader');
+      if (mainHeader) {
+        document.getElementById('nav').classList.add('fixed');
+        document.getElementById('mobileNav').classList.add('fixed');
+        document.getElementById('body').classList.remove('overflow-hidden', 'fixed')
+
+  
+        // Delay for 2 seconds (2000 milliseconds) before setting nav to fixed
+        setTimeout(() => {
+          const offset = 5; // Adjust this value as needed
+          window.scrollTo({ top: mainHeader.offsetHeight - offset, behavior: 'smooth' });          
+        }, 300);
+        setTimeout(() => {
+
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+</html>

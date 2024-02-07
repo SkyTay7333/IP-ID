@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/fipProfile.css">
+    <script src="../js/app.js" defer></script>
+    <script src="../js/fipDiscover.js" defer></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+    <link rel="icon" href="../resources/icon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../resources/icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../resources/icon/favicon-32x32.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../resources/icon/favicon-16x16.ico">
+
+    <!-- For Android devices -->
+    <link rel="icon" type="image/png" sizes="192x192" href="../resources/icon/android-chrome-192x192.ico">
+    <link rel="icon" type="image/png" sizes="512x512" href="../resources/icon/android-chrome-512x512.ico">
+
+    <!-- For Apple devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../resources/icon/apple-touch-icon.ico">
+    <title>FIP - Profile</title>
+</head>
+<body class="bg-gray-100 dark:bg-black">
+  <div class="hidden md:block">
+    <header class="nav dark:hidden text-white p-3">
+        <div class="mx-auto flex justify-between items-center">
+            <a href="home.html" class="maintxt text-xl font-bold pl-6 pr-14">← Back</a>
+            <h1 class="maintxt text-2xl pl-16">FIP - Finance Investments Practice</h1>
+            <nav class="maintxt space-x-4 pr-4">
+                <a href="fip.html" class="text-sm">Profile</a>
+                <a href="fipDiscover.html" class="text-sm">Discover</a>
+                <a href="fipLeaderboard.html" class="text-sm">Leaderboard</a>
+                <!-- Add more navigation links as needed -->
+            </nav>
+            
+        </div>
+    </header>
+    <header class="hidden dark:block navdark text-white p-3">
+        <div class="mx-auto flex justify-between items-center">
+            <a href="home.html" class="maintxt text-xl font-bold pl-6 pr-14">← Back</a>
+            <h1 class="maintxt text-2xl pl-16">FIP - Finance Investments Practice</h1>
+            <nav class="maintxt space-x-4 pr-4">
+                <a href="fip.html" class="text-sm">Profile</a>
+                <a href="fipDiscover.html" class="text-sm">Discover</a>
+                <a href="fipLeaderboard.html" class="text-sm">Leaderboard</a>
+                <!-- Add more navigation links as needed -->
+            </nav>
+            
+        </div>
+    </header>
+    
+    <div class="container mx-auto mt-8">
+        <!-- Search Bar and Daily Stocks -->
+        <div id="searchBarDailycontainer" class="mb-4 flex relative items-center justify-between">
+            <!-- Daily Stocks on the left -->
+            <div id="dailyStocks" class="flex flex-2 flex-row h-14 space-x-"></div>
+    
+            <!-- Search Bar on the right -->
+            <div id="searchBar" class="flex flex-1 ml-4 items-center space-x-2">
+                <form id="searchForm" class="flex flex-1 ml-4 items-center space-x-2">
+                    <input id="searchBarInput" type="text" placeholder="Search stocks..." class="p-4 rounded-l-full w-full focus:outline-none">
+                    <button class="bg-blue-500 text-white p-4 rounded-r-full hover:bg-blue-600 focus:outline-none">Search</button>
+                </form>
+            </div>
+            
+        </div>
+        
+        <h1 class="text-3xl text-black dark:text-white font-semibold mb-4 mt-8">Stocks</h1>
+        
+        <div id="loading-animation" class="flex items-center justify-center mb-4">
+
+            <dotlottie-player src="https://lottie.host/a6410e62-35e4-4140-9023-9e1c5d248723/7Uyvby8lA5.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>        </div>
+        
+        <div id="mainContent" class="hidden bg-main-content rounded-xl shadow-md bg-cover bg-center relative">
+            <div class="container mx-auto mt-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-8">
+                    <div class="bg-white p-6 rounded-md shadow-md text-center mx-auto">
+                        <!-- Placeholder for stock information -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stock Modal -->
+        <div id="stockModal" class="fixed inset-0 z-50 hidden overflow-auto bg-black bg-opacity-50">
+            <div class="flex items-center justify-center h-screen">
+                <div class="bg-white p-8 rounded-md shadow-md max-w-md">
+                    <div id="modalContent"></div>
+                    <div class="flex justify-between mt-4">
+                        <button id="closeModal" class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none">Close</button>
+                        <button id="buyButton" class="bg-green-500 text-white p-2 rounded-md">Buy</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="errorModal" class="fixed inset-0 z-50 hidden overflow-auto bg-black bg-opacity-50">
+            <div class="flex items-center justify-center h-screen">
+                <div class="bg-white p-8 rounded-md shadow-md max-w-md">
+                    <div id="errorContent"></div>
+                    <button id="closeErrorModal" class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+    
+  <div class="block md:hidden font-sans bg-white dark:bg-black">
+    <div class="flex flex-col items-center justify-center h-screen">
+      <p class="text-lg text-center text-gray-800 dark:text-gray-200">
+        For the best experience, please download our app or use a desktop browser.
+      </p>
+      <button class="mt-4 px-6 py-3 bg-blue-600 text-white rounded-md">
+        Download App
+      </button>
+      <a href="home.html" class="mt-2 text-blue-600">Back to Home</a>
+    </div>
+  </div>
+    
+    
+    <footer class="text-center p-4 md:mt-20 text-xs">
+        <p class="text-gray-800 hidden md:block dark:text-gray-200">
+          Copyright &copy; 2024 Sky Studios. All rights reserved.
+          
+          <a href="planning.html" class="text-gray-800 dark:text-gray-200 ml-20 mr-3">Planning</a>
+          |
+          <a href="FIP.html" class="text-gray-800 dark:text-gray-200 ml-3 mr-3">FIP</a>
+          |
+          <a href="about.html" class="text-gray-800 dark:text-gray-200 ml-3 mr-3">About Us</a>
+          |
+          <a href="contact.html" class="text-gray-800 dark:text-gray-200 ml-3 mr-3">Contact Us</a>
+          |
+          <a href="#" class="text-gray-800 dark:text-gray-200 ml-3" target="_blank">Sky Studios</a>
+        </p>
+    
+        <div class="flex flex-col items-center md:hidden">
+          <p class="text-gray-800 dark:text-gray-200 mt-2 mb-4">
+            Copyright &copy; 2024 Sky Studios. All rights reserved.
+          </p>
+        
+          <p class="text-gray-800 dark:text-gray-200">
+            <a href="planning.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">Planning</a> |
+            <a href="FIP.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">FIP</a> |
+            <a href="about.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">About Us</a> |
+            <a href="contact.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">Contact Us</a> |
+            <a href="#" class="text-gray-800 dark:text-gray-200 ml-2" target="_blank">Sky Studios</a>
+          </p>
+        </div>
+    </footer>
+</body>
+</html>

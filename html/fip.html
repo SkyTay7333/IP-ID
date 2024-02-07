@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/fipProfile.css">
+    <script src="../js/app.js" defer></script>
+    <script src="../js/fipProflie.js" defer></script>
+    <link rel="icon" href="../resources/icon/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../resources/icon/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="../resources/icon/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../resources/icon/favicon-16x16.ico">
+
+  <!-- For Android devices -->
+  <link rel="icon" type="image/png" sizes="192x192" href="../resources/icon/android-chrome-192x192.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="../resources/icon/android-chrome-512x512.ico">
+
+  <!-- For Apple devices -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../resources/icon/apple-touch-icon.ico">
+    <title>FIP - Profile</title>
+</head>
+<body class="bg-gray-100 dark:bg-black">
+  <div class="hidden md:block">
+    <header class="nav dark:hidden text-white p-3">
+        <div class="mx-auto flex justify-between items-center">
+            <a href="home.html" class="maintxt text-xl font-bold pl-6 pr-14">← Back</a>
+            <h1 class="maintxt text-2xl pl-16">FIP - Finance Investments Practice</h1>
+            <nav class="maintxt space-x-4 pr-4">
+                <a href="fip.html" class="text-sm">Profile</a>
+                <a href="fipDiscover.html" class="text-sm">Discover</a>
+                <a href="fipLeaderboard.html" class="text-sm">Leaderboard</a>
+                <!-- Add more navigation links as needed -->
+            </nav>
+            
+        </div>
+    </header>
+    <header class="hidden dark:block navdark text-white p-3">
+        <div class="mx-auto flex justify-between items-center">
+            <a href="home.html" class="maintxt text-xl font-bold pl-6 pr-14">← Back</a>
+            <h1 class="maintxt text-2xl pl-16">FIP - Finance Investments Practice</h1>
+            <nav class="maintxt space-x-4 pr-4">
+                <a href="fip.html" class="text-sm">Profile</a>
+                <a href="fipDiscover.html" class="text-sm">Discover</a>
+                <a href="fipLeaderboard.html" class="text-sm">Leaderboard</a>
+                <!-- Add more navigation links as needed -->
+            </nav>
+            
+        </div>
+    </header>
+    <section class="container mx-auto my-8 flex flex-col">
+        <div class="w-full p-4 bg-gray-900 rounded-xl shadow mb-4 flex">
+            <div class="w-1/3 pr-4 text-white">
+                <!-- User Profile Information on the left side -->
+                <h2 class="maintxt text-xl font-bold mb-4">All investments</h2>
+                <div class="mb-4">
+                    <p class="text-3xl">US$<span id="total-equity"></span></p>
+                    <hr class="border-t border-gray-300 my-2">
+                    <div class="flex items-center">
+                        <div class="flex-1">
+                            <p class="mb-2">Equity:<br> US$<span id="equity"></span></p>
+                        </div>
+                        <div class="flex-1 flex items-center">
+                            <div class="border-r border-gray-300 h-8 mx-2"></div>
+                            <p class="mb-2 ml-2">Cash:<br>US$<span id="cash"></span></p>
+                        </div>
+                    </div>
+                    
+                    <hr class="border-t border-gray-300 mb-4 mt-2">
+                    
+                    <div class="flex justify-between">
+                        <p class="mb-2">Total unrealised return:<br> US$<span id="total-UnReturn"></span></p>
+                        <p class="mb-2 mr-4">Total return:<br> US$<span id="total-return"></span></p>
+                    </div>
+                    
+
+
+
+                </div>
+            </div>
+            <div class="w-2/3 bg-gray-800 rounded-xl">
+                <!-- Graph on the right side with longer width -->
+                <canvas id="user-chart" width="700" height="300"></canvas>
+            </div>
+        </div>
+        <div class="w-full p-4 bg-gray-100 rounded shadow mb-4">
+            <h2 class="maintxt text-xl font-bold mb-4">Holdings</h2>
+            <div id="holdings-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Stock Cards Go Here -->
+            </div>
+        </div>        
+        
+        <div class="mb-4 pb-6 p-4 bg-white rounded shadow-md relative flex-col">
+            <h2 class="maintxt text-xl font-bold mb-4 sticky top-0 bg-white z-10">Market News</h2>
+            <div id="daily-news-container"  class="flex items-center">
+              <!-- Your JavaScript will populate news items dynamically here -->
+            </div>
+        </div>
+
+        <!-- The modal -->
+        <div id="sellModal" class="flex items-center justify-center hidden fixed inset-0 bg-black bg-opacity-50 z-50">
+            <div class="modal-content mx-auto my-16 p-6 bg-white w-80 rounded-md shadow-md">
+                <h2 class="text-xl font-bold mb-4">Sell Stocks</h2>
+                <!-- Stock details go here -->
+                <div id="stockDetails" class="mb-4"></div>
+                <!-- Input for the amount of shares to sell -->
+                <label for="sellAmount" class="text-sm text-gray-600">Enter the amount of shares to sell:</label>
+                <input type="number" id="sellAmount" class="w-full p-2 border rounded-md mb-4">
+
+                <div class="flex justify-between">
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700 cursor-pointer focus:outline-none">close</button>
+                    <button id="sellButton" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none">Sell</button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="dailyLoginModal" class="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 hidden">
+            <!-- Modal content -->
+            <div class="bg-white p-8 max-w-md mx-auto mt-20 rounded">
+              <h2 class="text-2xl font-bold mb-4">Daily Login Bonus</h2>
+              <p>Claim your $200 bonus today!</p>
+              <!-- Add any other content or form fields here -->
+              <button id="claimBonusBtn" class="bg-blue-500 text-white py-2 px-4 rounded mt-4">Claim Now</button>
+            </div>
+        </div>
+
+
+    </section>
+</div> 
+
+  <div class="block md:hidden font-sans bg-white dark:bg-black">
+    <div class="flex flex-col items-center justify-center h-screen">
+      <p class="text-lg text-center text-gray-800 dark:text-gray-200">
+        For the best experience, please download our app or use a desktop browser.
+      </p>
+      <button id="downloadapp" class="mt-4 px-6 py-3 bg-blue-600 text-white rounded-md">
+        Download App
+      </button>
+      <a href="home.html" class="mt-2 text-blue-600">Back to Home</a>
+    </div>
+  </div>
+    <footer class="text-center p-4 md:mt-20 text-xs">
+        <p class="text-gray-800 hidden md:block dark:text-gray-200">
+          Copyright &copy; 2024 Sky Studios. All rights reserved.
+          
+          <a href="planning.html" class="text-gray-800 dark:text-gray-200 ml-20 mr-3">Planning</a>
+          |
+          <a href="FIP.html" class="text-gray-800 dark:text-gray-200 ml-3 mr-3">FIP</a>
+          |
+          <a href="about.html" class="text-gray-800 dark:text-gray-200 ml-3 mr-3">About Us</a>
+          |
+          <a href="contact.html" class="text-gray-800 dark:text-gray-200 ml-3 mr-3">Contact Us</a>
+          |
+          <a href="#" class="text-gray-800 dark:text-gray-200 ml-3" target="_blank">Sky Studios</a>
+        </p>
+    
+        <div class="flex flex-col items-center md:hidden">
+          <p class="text-gray-800 dark:text-gray-200 mt-2 mb-4">
+            Copyright &copy; 2024 Sky Studios. All rights reserved.
+          </p>
+        
+          <p class="text-gray-800 dark:text-gray-200">
+            <a href="planning.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">Planning</a> |
+            <a href="FIP.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">FIP</a> |
+            <a href="about.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">About Us</a> |
+            <a href="contact.html" class="text-gray-800 dark:text-gray-200 ml-2 mr-2">Contact Us</a> |
+            <a href="#" class="text-gray-800 dark:text-gray-200 ml-2" target="_blank">Sky Studios</a>
+          </p>
+        </div>
+    </footer>
+</body>
+</html>

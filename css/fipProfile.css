@@ -1,0 +1,37 @@
+.nav {
+  background: linear-gradient(to right, #4f9bce, #0f4c97); 
+  padding: 10px; 
+  color: white; 
+}
+
+.navdark {
+  background: linear-gradient(to right, rgb(53, 86, 151), #0a3569); 
+  padding: 10px; 
+  color: white; 
+}
+
+#daily-news-container {
+    display: flex;
+    max-height: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+.news-item {
+  display: inline-block;
+  max-width: 300px; 
+  margin-right: 10px;
+  vertical-align: top;
+  flex: 0 0 auto;
+  margin-right: 20px; 
+}
+
+
+.news-title {
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; 
+  white-space: pre-wrap;
+}
